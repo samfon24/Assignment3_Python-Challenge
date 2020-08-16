@@ -1,22 +1,15 @@
 import os
 import csv
-import pandas as pd
 
 file_path = os.path.join('Resources','budget_data.csv')
 
 contents = []
 profit_loss_amt = []
 profit_loss_diff_amt = []
-
 total_amt = 0
-
 avg_chng = 0
 
 with open(file_path, 'r') as csvfile:
-
-    #panda reader?
-    # df = pd.read_csv('budget_data.csv')
-    # df.head()
 
     csvreader = csv.reader(csvfile, delimiter = ',')
 
@@ -32,10 +25,9 @@ months = len(contents)
 print(months)
 
 # The net total amount of "Profit/Losses" over the entire period
-print(total_amt)
+print(round(total_amt))
 
 # The avg of the changes in Profit/Losses over the entire period
 for i in range(months-1):
-    avg_chng = (profit_loss_amt[i+1]) - (profit_loss_amt[i])/
-    profit_loss_diff_amt.append(avg_chng)
-print(len(profit_loss_diff_amt))
+    avg_chng = ((profit_loss_amt[i+1]) - (profit_loss_amt[i])) + avg_chng
+print(round(avg_chng/float(months-1),2))
