@@ -7,7 +7,6 @@ contents = []
 dates = []
 profit_loss_amt = []
 profit_loss_diff_amt = []
-dates_and_delta_list = []
 total_amt = 0
 avg_chng = 0
 
@@ -27,6 +26,9 @@ with open(file_path, 'r') as csvfile:
         # Creates a list of all dates
         dates.append(row[0])
 
+#Header
+print('Financial Analysis')
+print('-'*20)
 # The total number of months included in the dataset AKA last row not counting the header since we did next*
 months = len(contents)
 print(f'Total Months: {months}')
