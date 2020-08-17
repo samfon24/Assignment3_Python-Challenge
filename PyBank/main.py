@@ -45,22 +45,9 @@ for i in range(months-1):
     # Creates a list of every delta at each row
     delta_chng = (profit_loss_amt[i+1]) - (profit_loss_amt[i])
     profit_loss_diff_amt.append((delta_chng))
+# Inserting a 0 to the list so it matches the lenght of other lists
 profit_loss_diff_amt.insert(0, 0)
 
 for index, pnl in enumerate(profit_loss_diff_amt):
     if profit_loss_diff_amt[index] == max(profit_loss_diff_amt):
-        time = dates[index]
-        dates_and_delta_list.append((time, pnl)) 
-print(f'Greatest Increase in Profits: {dates_and_delta_list}')
-
-
-
-# profit_loss_diff_amt.insert(0, 0)
-# print((profit_loss_diff_amt))
-# print(len(contents))
-# Prints the average in changes for data set
-# print(round(avg_chng/float(months-1),2))
-
-# Prints the Max of the profit/loss list
-# print(max(profit_loss_diff_amt))
-
+        print(f'Greatest Increase in Profits: {dates[index]} ${round(pnl)}')
