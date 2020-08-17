@@ -7,6 +7,7 @@ contents = []
 dates = []
 profit_loss_amt = []
 profit_loss_diff_amt = []
+dates_and_delta_list = []
 total_amt = 0
 avg_chng = 0
 
@@ -31,24 +32,35 @@ months = len(contents)
 print(f'Total Months: {months}')
 
 # The net total amount of "Profit/Losses" over the entire period
-print(f'Net Total for Data Set Period: {round(total_amt)}')
+print(f'Net Total for Data Set Period: ${round(total_amt)}')
 
 # The avg of the changes in Profit/Losses over the entire period
 for i in range(months-1):
     # Obtains total for changes between row 
     avg_chng += ((profit_loss_amt[i+1]) - (profit_loss_amt[i]))
 
-    # Creates a list of every delta at each row
+    # List of Dates
     date = dates[i+1]
-    delta_chng = (profit_loss_amt[i+1]) - (profit_loss_amt[i])
-    profit_loss_diff_amt.append((date, delta_chng))
 
-print()
+    # Creates a list of every delta at each row
+    delta_chng = (profit_loss_amt[i+1]) - (profit_loss_amt[i])
+    profit_loss_diff_amt.append((delta_chng))
 profit_loss_diff_amt.insert(0, 0)
-print((profit_loss_diff_amt))
+
+for index, pnl in enumerate(profit_loss_diff_amt):
+    if profit_loss_diff_amt[index] == max(profit_loss_diff_amt):
+        time = dates[index]
+        dates_and_delta_list.append((time, pnl)) 
+print(f'Greatest Increase in Profits: {dates_and_delta_list}')
+
+
+
+# profit_loss_diff_amt.insert(0, 0)
+# print((profit_loss_diff_amt))
 # print(len(contents))
 # Prints the average in changes for data set
 # print(round(avg_chng/float(months-1),2))
 
 # Prints the Max of the profit/loss list
 # print(max(profit_loss_diff_amt))
+
