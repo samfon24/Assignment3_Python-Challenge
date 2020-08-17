@@ -10,6 +10,8 @@ profit_loss_diff_amt = []
 total_amt = 0
 avg_chng = 0
 
+report = open('main.txt','w')
+
 with open(file_path, 'r') as csvfile:
 
     csvreader = csv.reader(csvfile, delimiter = ',')
@@ -29,12 +31,17 @@ with open(file_path, 'r') as csvfile:
 #Header
 print('Financial Analysis')
 print('-'*20)
+report.write('Financial Analysis \n')
+report.write('-'*20 + '\n')
+
 # The total number of months included in the dataset AKA last row not counting the header since we did next*
 months = len(contents)
 print(f'Total Months: {months}')
+report.write(f'Total Months: {months} \n')
 
 # The net total amount of "Profit/Losses" over the entire period
 print(f'Net Total for Data Set Period: ${round(total_amt)}')
+report.write(f'Net Total for Data Set Period: ${round(total_amt)} \n')
 
 # The avg of the changes in Profit/Losses over the entire period
 for i in range(months-1):
@@ -53,5 +60,9 @@ profit_loss_diff_amt.insert(0, 0)
 for index, pnl in enumerate(profit_loss_diff_amt):
     if profit_loss_diff_amt[index] == max(profit_loss_diff_amt):
         print(f'Greatest Increase in Profits: {dates[index]} ${round(pnl)}')
+        report.write(f'Greatest Increase in Profits: {dates[index]} ${round(pnl)} \n')
     elif profit_loss_diff_amt[index] == min(profit_loss_diff_amt):
         print(f'Greatest Decrease in Profits: {dates[index]} ${round(pnl)}')
+        report.write(f'Greatest Decrease in Profits: {dates[index]} ${round(pnl)} \n')
+
+report.close()
