@@ -51,3 +51,5 @@ profit_loss_diff_amt.insert(0, 0)
 for index, pnl in enumerate(profit_loss_diff_amt):
     if profit_loss_diff_amt[index] == max(profit_loss_diff_amt):
         print(f'Greatest Increase in Profits: {dates[index]} ${round(pnl)}')
+    elif profit_loss_diff_amt[index] == min(profit_loss_diff_amt):
+        print(f'Greatest Decrease in Profits: {dates[index]} ${round(pnl)}')
