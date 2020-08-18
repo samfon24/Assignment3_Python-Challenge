@@ -25,7 +25,7 @@ txt_file = open(txt_file_path, 'w')
 # Headers
 print('Election Results')
 print('-'*20)
-txt_file.write('Election Results' + '\n)
+txt_file.write('Election Results' + '\n')
 txt_file.write('-'*20 + '\n')
 
 # Print the total voter count
@@ -51,7 +51,7 @@ txt_file.write(f'Li: {li_percent}% ({li_count})' + '\n')
 tooley_count = candidate_votes.count("O'Tooley")
 tooley_percent = format((float(tooley_count)/float(len(voter_id)))*100, ".3f")
 print(f"O'Tooley: {tooley_percent}% ({tooley_count})")
-txt_file.write(f"O'Tooley: {tooley_percent}% ({tooley_count})' + '\n')
+txt_file.write(f"O'Tooley: {tooley_percent}% ({tooley_count})" + "\n")
 
 # Candidate dictionary with name and voter count
 candidate_count = {
@@ -66,6 +66,6 @@ winner_votes = max(candidate_count['votes'])
 for index, winner in enumerate(candidate_count['votes']):
     if candidate_count['votes'][index] == winner_votes:
         print(f"Winner: {candidate_count['candidates'][index]}")
-        txt_file.write(f"Winner: {candidate_count['candidates'][index]}" + '\n')
+        txt_file.write(f"Winner: {candidate_count['candidates'][index]}" + "\n")
 print('-'*20)
 txt_file.write('-'*20 + '\n')
